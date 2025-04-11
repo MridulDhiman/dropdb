@@ -4,6 +4,9 @@ import (
 	"sync"
 )
 
+// compile time check to verify if FifoStrategy implements ReplacementStrategy interface
+var _ ReplacementStrategy = (*FifoStrategy)(nil)
+
 // FifoStrategy collects all the unpinned buffers during initialization in the FIFO queue
 type FifoStrategy struct {
 	ReplacementStrategy
